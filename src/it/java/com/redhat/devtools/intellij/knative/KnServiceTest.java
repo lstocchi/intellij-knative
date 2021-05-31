@@ -30,24 +30,29 @@ public class KnServiceTest extends BaseTest {
 
     private Kn kn;
 
-   /* @Before
-    public void init() throws ExecutionException, InterruptedException {
-        kn = KnCliFactory.getInstance().getKn(project).get();
-    }*/
-
     @Test
     public void OK() {
         assertTrue(true);
     }
 
-    /*@Test
+    @Test
     public void list() throws IOException {
+        System.out.println("list");
+        try {
+            kn = KnCliFactory.getInstance().getKn(project).get();
+        } catch (InterruptedException e) {
+            System.out.println(e.getLocalizedMessage());
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            System.out.println(e.getLocalizedMessage());
+            e.printStackTrace();
+        }
         List<Service> services = kn.getServicesList();
         System.out.println(services);
         assertTrue(services.size() >= 0);
     }
 
-    @Test
+    /*@Test
     public void CreateServiceAndDelete() throws IOException {
         final String serviceName = "test1";
         String serviceAsYAML = load("service.yaml").replace("foo", serviceName);
