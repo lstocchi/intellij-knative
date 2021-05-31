@@ -10,11 +10,15 @@
  ******************************************************************************/
 package com.redhat.devtools.intellij.knative;
 
+import com.redhat.devtools.intellij.knative.kn.Kn;
+import com.redhat.devtools.intellij.knative.kn.KnCliFactory;
 import com.redhat.devtools.intellij.knative.kn.Service;
 import com.redhat.devtools.intellij.knative.utils.KnHelper;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
+import org.junit.Before;
 import org.junit.Test;
 
 
@@ -22,7 +26,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class KnServiceTest {
+public class KnServiceTest extends BaseTest {
+
+    private Kn kn;
+
+    @Before
+    public void init() throws ExecutionException, InterruptedException {
+        kn = KnCliFactory.getInstance().getKn(project).get();
+    }
+
     @Test
     public void OK() {
         assertTrue(true);

@@ -27,7 +27,6 @@ public class BaseTest {
 
     private CodeInsightTestFixture myFixture;
     protected Project project;
-    protected Kn kn;
 
     @Before
     public void setUp() throws Exception {
@@ -37,7 +36,6 @@ public class BaseTest {
         myFixture = IdeaTestFixtureFactory.getFixtureFactory().createCodeInsightFixture(fixture);
         myFixture.setUp();
         project = myFixture.getProject();
-        kn = KnCliFactory.getInstance().getKn(project).get();
     }
 
     @After
