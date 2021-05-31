@@ -30,10 +30,10 @@ public class KnServiceTest extends BaseTest {
 
     private Kn kn;
 
-    @Before
+   /* @Before
     public void init() throws ExecutionException, InterruptedException {
         kn = KnCliFactory.getInstance().getKn(project).get();
-    }
+    }*/
 
     @Test
     public void OK() {
