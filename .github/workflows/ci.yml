@@ -49,14 +49,9 @@ jobs:
           kubectl config set-context --current --namespace=testns
           kubectl create secret generic empty-secret
           kubectl get secret
+          kubectl get secret/empty-secret -o json
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}
-      - name: Build with Gradle
-        run: ./gradlew integrationTest
-      - uses: actions/upload-artifact@v1
-        with:
-          name: linux-integration-test-reports
-          path: build/reports
 
   build-macos:
     runs-on: macos-latest
