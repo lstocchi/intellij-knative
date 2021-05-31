@@ -44,12 +44,14 @@ jobs:
         run: chmod +x gradlew
       - name: Testing
         run: |
+          kubectl version
           kubectl cluster-info
           kubectl get namespaces
           kubectl config set-context --current --namespace=testns
           kubectl create secret generic empty-secret
           kubectl get secret
           kubectl get secret/empty-secret -o json
-          ls
+          kubectl create -f src/it/resource/service.yaml
+          kubectl get ksvc
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}
