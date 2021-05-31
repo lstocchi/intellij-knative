@@ -47,6 +47,8 @@ jobs:
           kubectl cluster-info
           kubectl get namespaces
           kubectl config set-context --current --namespace=testns
+          kubectl create secret generic empty-secret
+          kubectl get secret
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}
       - name: Build with Gradle
