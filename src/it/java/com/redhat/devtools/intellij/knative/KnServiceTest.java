@@ -28,14 +28,14 @@ public class KnServiceTest extends BaseTest {
         assertTrue(true);
     }
 
-    @Test
+    /*@Test
     public void list() throws IOException {
         List<Service> services = kn.getServicesList();
         System.out.println(services);
         assertTrue(services.size() >= 0);
     }
 
-    /*@Test
+    @Test
     public void CreateServiceAndDelete() throws IOException {
         final String serviceName = "test1";
         String serviceAsYAML = load("service.yaml").replace("foo", serviceName);
