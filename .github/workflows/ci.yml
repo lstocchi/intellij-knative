@@ -51,7 +51,11 @@ jobs:
           kubectl create secret generic empty-secret
           kubectl get secret
           kubectl get secret/empty-secret -o json
-          kubectl create -f src/it/resource/service.yaml
+          ls
+          ls src
+          ls src/it
+          ls src/it/resources
+          kubectl create -f src/it/resources/service.yaml
           kubectl get ksvc
           echo "current-context:" $(kubectl config current-context)
           echo "environment-kubeconfig:" ${KUBECONFIG}
